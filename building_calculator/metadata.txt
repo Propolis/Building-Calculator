@@ -1,0 +1,17 @@
+[general]
+name=Building Calculator
+qgisMinimumVersion=3.0
+description=Calculate residents and parking spots from building polygons
+version=1.0.0
+author=Building Calculator Team
+email=example@example.com
+about=A plugin to calculate the number of residents and parking spaces based on selected building polygon area and number of floors. Features configurable coefficients for different building types.
+tracker=https://github.com/example/building-calculator/issues
+repository=https://github.com/example/building-calculator
+hasProcessingProvider=no
+tags=buildings, calculator, urban planning, residents, parking
+homepage=https://github.com/example/building-calculator
+category=Vector
+icon=icon.svg
+experimental=False
+deprecated=False
