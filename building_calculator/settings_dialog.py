@@ -66,7 +66,7 @@ class SettingsDialog(QDialog):
         layout.addWidget(general_group)
         
         # Simple mode settings
-        simple_group = QGroupBox('Простой режим (без типов квартир)')
+        simple_group = QGroupBox('Режим расчёта')
         simple_layout = QFormLayout()
         
         self.check_use_types = QCheckBox('Использовать типы квартир')

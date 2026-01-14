@@ -4,10 +4,13 @@ Building Calculator - Main Plugin Class
 """
 
 import os
+import importlib
+import sys
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QMessageBox
 from qgis.core import QgsProject, QgsWkbTypes
+from qgis.utils import reloadPlugin
 
 from .settings_dialog import SettingsDialog
 from .calculation_dialog import CalculationDialog
@@ -93,6 +96,16 @@ class BuildingCalculator:
             add_to_toolbar=False,
             status_tip=self.tr('Configure calculation parameters')
         )
+        
+        # Reload action
+        self.add_action(
+            icon_path,
+            text=self.tr('Reload Plugin'),
+            callback=self.reload_plugin,
+            parent=self.iface.mainWindow(),
+            add_to_toolbar=False,
+            status_tip=self.tr('Reload the plugin without restarting QGIS')
+        )
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
@@ -170,3 +183,7 @@ class BuildingCalculator:
         """Run the settings dialog."""
         dialog = SettingsDialog(self.iface.mainWindow(), self.settings)
         dialog.exec_()
+    
+    def reload_plugin(self):
+        """Reload the plugin without restarting QGIS."""
+        reloadPlugin('building_calculator')
